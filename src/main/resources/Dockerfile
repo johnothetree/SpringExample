@@ -1,5 +1,6 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM java:8
 VOLUME /tmp
-ADD example-spring-1.0.jar app.jar
-ENV JAVA_OPTS=""
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+ADD build/libs/example-spring-1.0.jar app.jar
+EXPOSE 8080
+RUN bash -c 'touch /app.jar'
+ENTRYPOINT ["java","-jar","/app.jar"]
