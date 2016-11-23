@@ -1,0 +1,39 @@
+#First, let's create a database profile for local testing. We'll use port 7778 throughout
+spring:
+ data:
+   mongodb:
+     uri: mongodb://user:password@ds159517.mlab.com:59517/example
+ application:
+   name: example
+server:
+  port: 7778
+
+---
+
+#Next, a profile for QA testing, as to not have Local testing be affected.
+spring:
+    profiles: qa
+    data:
+        mongodb:
+            uri: mongodb://user:password@ds159497.mlab.com:59497/example_qa
+    application:
+        name: example
+server:
+    port: 7778
+
+---
+
+#Finally, a profile for production, as to not have QA and Local testing affected
+spring:
+    profiles: prod
+    data:
+        mongodb:
+            uri: mongodb://user:password@ds159527.mlab.com:59527/example_prod
+    application:
+        name: example
+server:
+
+    port: 7778
+
+#All database connections are legitimate connections setup for free via mlab.com. Normally, the "user:password" would
+#be something secure, but as this is an example, I decided to keep it simple.
