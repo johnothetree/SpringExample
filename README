@@ -1,0 +1,8 @@
+This is an example Spring Data REST project, built by John Frederick. 
+
+Within this project, a number of tools can be found within:
+1) Spring Boot, for running the application
+2) Spring Data with MongoDB, using the MongoRepository functionality.
+3) Testing via MockMVC, allowing for easier testing of CRUD operations and custom endpoints. 
+4) Docker capability, for easier deployment of the project
+5) Gradle build management, for easier dependency handling. 
